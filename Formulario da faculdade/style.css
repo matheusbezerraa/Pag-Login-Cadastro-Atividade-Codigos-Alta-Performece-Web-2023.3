@@ -14,6 +14,12 @@ body{
     align-items: center;
 }
 
+.descricao-senha{
+    font-size: small;
+    color: #776e6e;
+    padding: 4px;
+}
+
 .container{
     background-color: #ffffff;
     border-radius: 10px;
@@ -72,6 +78,19 @@ body{
     border-radius: 10px;
     padding: 10px;
 }
+
+.botao-cadastro:hover{
+    background-color: black;
+    border: 5px solid black;
+}
+
+.link-login{
+    padding: 3px;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
  /*erro e sucesso */
 .form-control.success input{
     border-color: green;
@@ -81,7 +100,7 @@ body{
     border-color: red;
 }
 
-.form-control.success i.fa-check-circle{
+.form-control.success i.fa-check-circle {
     color: green;
     visibility: visible;
 }

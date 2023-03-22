@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
    
-    <title>Formulário</title>
+    <title>Cadastro</title>
 </head>
 <body>
     <div class="container">
       <div class="header">
-          <h2>Criar Uma Conta</h2>
+          <h2>Crie uma conta</h2>
       </div>
 
       <form id="form" class="form">
@@ -33,11 +33,12 @@
         </div>
 
         <div class="form-control">
-            <label for="password">Senha</label>
+            <label for="password">Senha</label>  
             <input type="password" id="password" placeholder="Digite sua senha">
             <i class="fas fa-exclamation-circle"></i>
             <i class="fas fa-check-circle"></i>
             <small>Mensagem de erro</small>
+            <p id="meuParagrafo" class="descricao-senha">(Deve ter no minímo 8 caracteres, um caractere especial e um número.)</p> 
         </div>
 
         <div class="form-control">
@@ -48,8 +49,11 @@
             <small>Mensagem de erro</small>
         </div>
 
-        <button type="submit">Enviar</button>
-
+        <div>
+            <button id="botaoCadastro" class="botao-cadastro" type="submit">Enviar</button>
+            <a class="link-login" href="pagLogin.html">Já tem cadastro? Faça login</a>
+        </div> 
+        
       </form>
       
     </div>
