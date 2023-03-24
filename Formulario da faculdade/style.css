@@ -2,13 +2,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 body{
     width: 100%;
     min-height: 100vh;
-    background: linear-gradient(68.15deg, #776e6e 16.62%, #ffffff 85.61%);
+    background-image: url(imagem\ de\ fundo.jpg);
+    background-size: 1500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,12 +17,12 @@ body{
 
 .descricao-senha{ /*Descrição sobre o espaço Senha*/
     font-size: small;
-    color: #776e6e;
+    color: #000000;
     padding: 4px;
 }
 
 .container{ /*Container que engloba todo o formulário*/
-    background-color: #ffffff;
+    background-color: #434242;
     border-radius: 10px;
     box-shadow: 0 2px 5px;
     width: 450px;
@@ -34,6 +35,7 @@ body{
 
 .form{ /*O formulário todo*/
     padding: 20px;
+    color: #000000;
 }
 
 .form-control{ /*Classe das <div>*/
@@ -49,6 +51,8 @@ body{
 
 .form-control input{ /*Espaço para colocar os valores ex: Email, senha...*/
     display: block;
+    border: 3px solid #F3EFE0 ;
+    background-color: #F3EFE0 ;
     border-radius: 10px;
     font-size: 14px;
     width: 100%;
@@ -70,9 +74,9 @@ body{
 }
 
 .form button{ /*Botão de enviar*/
-    background-color: #776e6e;
-    border: 5px solid #776e6e ;
-    color: #ffffff;
+    background-color: #F3EFE0;
+    border: 5px solid #F3EFE0 ;
+    color:  #7e7e7e;
     font-size: 14px;
     width: 100%;
     border-radius: 10px;
@@ -80,16 +84,17 @@ body{
 }
 
 .botao-cadastro:hover{ /*Deixar o botão enviar de outra cor caso passe o mause por cima*/
-    background-color: black;
-    border: 5px solid black;
+    background-color: #000000;
+    border: 5px solid #000000;
 }
 
 .link-login{ /*link de login*/
-    padding: 3px;
+    padding: 15px;
     font-size: small;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
 }
  /*erro e sucesso */
 .form-control.success input{ /*caso preencha corretamente a borda do <input> fica verde*/
