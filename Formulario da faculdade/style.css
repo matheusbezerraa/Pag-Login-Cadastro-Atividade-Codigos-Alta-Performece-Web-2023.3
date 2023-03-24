@@ -14,40 +14,40 @@ body{
     align-items: center;
 }
 
-.descricao-senha{
+.descricao-senha{ /*Descrição sobre o espaço Senha*/
     font-size: small;
     color: #776e6e;
     padding: 4px;
 }
 
-.container{
+.container{ /*Container que engloba todo o formulário*/
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 2px 5px;
-    width: 400px;
+    width: 450px;
     max-width: 100%;
 }
 
-.header{
+.header{ /*Espaço onde fica o <h2> "Crie uma conta"*/
     padding: 20px;
 }
 
-.form{
+.form{ /*O formulário todo*/
     padding: 20px;
 }
 
-.form-control{
+.form-control{ /*Classe das <div>*/
     margin-bottom: 10px;
     padding-bottom: 20px;
     position: relative;
 }
 
-.form-control label{
+.form-control label{ /*referindo aos <label> "Nome de usuário, Email..."*/
     display: inline-block;
     margin-bottom: 5px;
 }
 
-.form-control input{
+.form-control input{ /*Espaço para colocar os valores ex: Email, senha...*/
     display: block;
     border-radius: 10px;
     font-size: 14px;
@@ -55,21 +55,21 @@ body{
     padding: 10px;
 }
 
-.form-control i{
+.form-control i{ /*icons de check e exclamação*/
     position: absolute;
     top: 35px;
     right: 10px;
     visibility: hidden;
 }
 
-.form-control small{
+.form-control small{ /*mensagem de erro*/
     position: absolute;
     bottom: 0;
     left: 0;
     visibility: hidden;
 }
 
-.form button{
+.form button{ /*Botão de enviar*/
     background-color: #776e6e;
     border: 5px solid #776e6e ;
     color: #ffffff;
@@ -79,12 +79,12 @@ body{
     padding: 10px;
 }
 
-.botao-cadastro:hover{
+.botao-cadastro:hover{ /*Deixar o botão enviar de outra cor caso passe o mause por cima*/
     background-color: black;
     border: 5px solid black;
 }
 
-.link-login{
+.link-login{ /*link de login*/
     padding: 3px;
     font-size: small;
     display: flex;
@@ -92,25 +92,26 @@ body{
     align-items: center;
 }
  /*erro e sucesso */
-.form-control.success input{
+.form-control.success input{ /*caso preencha corretamente a borda do <input> fica verde*/
     border-color: green;
 }
 
-.form-control.error input{
+.form-control.error input{ /*caso preencha incorretamente a borda do <input> fica vermelho*/
     border-color: red;
 }
 
-.form-control.success i.fa-check-circle {
+.form-control.success i.fa-check-circle { /*caso preencha corretamente aparece o icon de sucesso verde*/
     color: green;
     visibility: visible;
 }
 
-.form-control.error i.fa-exclamation-circle{
+.form-control.error i.fa-exclamation-circle{ /*caso preencha incorretamente aparece o icon de erro vermelho*/
     color: red;
     visibility: visible;
 }
 
-.form-control.error small{
+.form-control.error small{ /*caso preencha errado aparece a mensagem de erro e na cor vermelha*/
     color: red;
     visibility: visible;
+    width: 100%;
 }
