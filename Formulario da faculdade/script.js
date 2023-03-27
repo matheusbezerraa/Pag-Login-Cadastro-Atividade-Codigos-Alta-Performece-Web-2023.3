@@ -3,6 +3,7 @@ const username = document.getElementById("username")
 const email = document.getElementById("email")
 const password = document.getElementById("password")
 const passwordConfirmation = document.getElementById("password-confirmation")
+const cpf = document.getElementById("cpf")
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault() //para a página não recarregar e tirar os valores dos inputs
@@ -17,11 +18,20 @@ function checkInputs(){ //verificando os inputs
     const passwordConfirmationValue = passwordConfirmation.value
     const specialCharRegex = /[-@!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
     const numberRegex = /\d/;
+    const cpfValue = cpf.value
     //validando os dados
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
     }else{
         setSuccessFor(username)
+    }
+
+    if(cpfValue ===""){
+        setErrorFor(cpf, "O cpf é obrigatório")
+    }else if(cpfValue.length != 11){
+        setErrorFor(cpf, "O cpf precisa conter 11 digítos")
+    }else{
+        setSuccessFor(cpf)
     }
 
     if(emailValue=== ""){

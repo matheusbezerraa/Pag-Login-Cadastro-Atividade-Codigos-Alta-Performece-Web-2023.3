@@ -4,9 +4,50 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Login.css">
     <title>Login</title>
 </head>
 <body>
-    LOGIN
+    <div class="container">
+        <div class="header">
+            <h2>Faça Login</h2>
+        </div>
+  
+        <form id="form" class="form">
+  
+          <div class="form-control">
+              <label for="username">Nome de usuário</label>
+              <input type="text"id="username" placeholder="Digite seu nome de usuário">
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+          </div>
+  
+          <div class="form-control">
+              <label for="password">Senha</label>  
+              <input type="password" id="password" placeholder="Digite sua senha">
+              <i class="fas fa-exclamation-circle"></i>
+              <i class="fas fa-check-circle"></i>
+              <small>Mensagem de erro</small>
+              <p id="meuParagrafo" class="descricao-senha"></p> 
+          </div>
+  
+         
+  
+              <button id="botaoCadastro" class="botao-login" type="submit">Enviar</button>
+              <a class="link-cadastro" href="index.html">Faça seu cadastro.</a>
+                     
+          
+        </form>
+        
+      </div>
+
+      <script src="login.js"></script>
+
+      <script
+      src="https://kit.fontawesome.com/f9e19193d6.js"
+      crossorigin="anonymous"
+      ></script> <!--script para adicionar os icons-->
+  
 </body>
 </html>
