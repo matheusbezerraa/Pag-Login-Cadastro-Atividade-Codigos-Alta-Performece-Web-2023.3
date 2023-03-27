@@ -71,10 +71,11 @@ function checkInputs(){ //verificando os inputs
     })
 
     if (formIsValid) {  
-      console.log("O formulário está válido")
-      document.getElementById("botaoCadastro").addEventListener("click", function() { //quando o formulario for valido ira para a pagina de login
+      //quando o formulario for valido ira para a pagina de login
+      setTimeout(() => {
+        alert("Cadastro completo!")
         window.location.href = "pagLogin.html";
-      });
+      }, 2000); 
     }
 }
 
