@@ -1,0 +1,47 @@
+const username = document.getElementById("username")
+const password = document.getElementById("password")
+
+form.addEventListener('submit', (e)=>{
+    e.preventDefault()
+    checkInputs()
+})
+
+function checkInputs(){
+    const usernameValue = username.value
+    const passwordValue = password.value
+    const numberRegex = /\d/
+    
+    if(usernameValue === ''){
+        setErrorFor(username, "O nome de usuário é obrigatório.")
+    }else{
+        setSuccessFor(username)
+    }
+    if(passwordValue===""){
+        setErrorFor(password,"A senha é obrigatória.")
+    }
+    const formControls = form.querySelectorAll(".form-control")
+
+    const formIsValid = [...formControls].every((formControl) => {
+        return formControl.className === "form-control success"
+      })
+      if (formIsValid) {  
+        //quando o formulario for valido ira para a pagina de login
+        setTimeout(() => {
+          alert("Cadastro completo!")
+          window.location.href = "pagLogin.html";
+        }, 2000); 
+      }
+  }
+  function setErrorFor(input, message){
+    const formControl = input.parentElement
+    const small = formControl.querySelector('small')
+
+    small.innerText=message
+    formControl.className = 'form-control error'
+}  
+function setSuccessFor(input){
+    const formControl = input.parentElement
+    
+    formControl.className = 'form-control success'
+    var paragraph = document.getElementById("meuParagrafo");
+    paragraph.style.display = "none";}
