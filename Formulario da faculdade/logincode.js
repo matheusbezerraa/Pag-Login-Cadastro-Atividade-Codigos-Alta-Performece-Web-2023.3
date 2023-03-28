@@ -10,15 +10,20 @@ function checkInputs(){
     const usernameValue = username.value
     const passwordValue = password.value
     const numberRegex = /\d/
+    const specialCharRegex = /[-@!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
     
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
     }else{
         setSuccessFor(username)
     }
+
     if(passwordValue===""){
         setErrorFor(password,"A senha é obrigatória.")
+    }else{
+        setSuccessFor(password)
     }
+
     const formControls = form.querySelectorAll(".form-control")
 
     const formIsValid = [...formControls].every((formControl) => {
@@ -27,9 +32,9 @@ function checkInputs(){
       if (formIsValid) {  
         //quando o formulario for valido ira para a pagina de login
         setTimeout(() => {
-          alert("Cadastro completo!")
-          window.location.href = "pagLogin.html";
-        }, 2000); 
+          alert("Login completo!")
+          window.location.href = "calculadora.html";
+        }, 1000); 
       }
   }
   function setErrorFor(input, message){

@@ -75,7 +75,7 @@ function checkInputs(){ //verificando os inputs
       setTimeout(() => {
         alert("Cadastro completo!")
         window.location.href = "pagLogin.html";
-      }, 2000); 
+      }, 1000); 
     }
 }
 
