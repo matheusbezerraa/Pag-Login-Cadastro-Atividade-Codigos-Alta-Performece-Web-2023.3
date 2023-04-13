@@ -4,11 +4,16 @@
     padding: 0;
     font-family: 'Raleway', sans-serif;
 }
+h2{
 
+color:#e6b326 ;
+
+
+}
 body{
     width: 100%;
     min-height: 100vh;
-    background-image: url(imagem\ de\ fundo.jpg);
+    background-image: url(imagem\ teste.jpeg);
     background-size: 1500px;
     display: flex;
     justify-content: center;
@@ -22,7 +27,7 @@ body{
 }
 
 .container{ /*Container que engloba todo o formulário*/
-    background-color: #434242;
+    background-color: #531775;
     border-radius: 10px;
     box-shadow: 0 2px 5px;
     width: 450px;
@@ -35,7 +40,7 @@ body{
 
 .form{ /*O formulário todo*/
     padding: 20px;
-    color: #000000;
+    color: #ecb620;
 }
 
 .form-control{ /*Classe das <div>*/
@@ -94,7 +99,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: rgb(0, 0, 0);
 }
  /*erro e sucesso */
 .form-control.success input{ /*caso preencha corretamente a borda do <input> fica verde*/
