@@ -33,7 +33,7 @@ function checkInputs(){
         //quando o formulario for valido ira para a pagina de login
         setTimeout(() => {
           alert("Login completo!")
-          window.location.href = "calculadora.html";
+          window.location.href = "landigPage.html";
         }, 1000); 
       }
   }

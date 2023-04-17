@@ -119,9 +119,9 @@ footer{
     left: 50%;
     transform: translateX(-50%);
     animation: arrow 2s infinite;
-  }
+}
   
-  .arrow::before {
+.arrow::before {
     content: "";
     display: block;
     width: 20px;
@@ -130,9 +130,9 @@ footer{
     border-right: 2px solid #fff;
     transform: rotate(132.5deg);
     margin: 0 auto;
-  }
+}
   
-  @keyframes arrow {
+@keyframes arrow {
     0% {
       opacity: 0;
       bottom: 1rem;
@@ -145,8 +145,8 @@ footer{
       opacity: 0;
       bottom: 3rem;
     }
-  }
+}
 
-  .hidden {
+.hidden {
     display: none;
-  }
+}
