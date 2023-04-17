@@ -74,7 +74,7 @@ function checkInputs(){ //verificando os inputs
       //quando o formulario for valido ira para a pagina de login
       setTimeout(() => {
         alert("Cadastro completo!")
-        window.location.href = "pagLogin.html";
+        window.location.href = "loginPage.html";
       }, 1000); 
     }
 }
