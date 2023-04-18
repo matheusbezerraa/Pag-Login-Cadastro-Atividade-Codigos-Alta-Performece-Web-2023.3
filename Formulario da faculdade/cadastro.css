@@ -22,12 +22,12 @@ body{
 
 .descricao-senha{ /*Descrição sobre o espaço Senha*/
     font-size: small;
-    color: #000000;
+    color: #7e7e7e;
     padding: 4px;
 }
 
 .container{ /*Container que engloba todo o formulário*/
-    background-color: #531775;
+    background-color: #190041;
     border-radius: 10px;
     box-shadow: 0 2px 5px;
     width: 450px;
@@ -99,7 +99,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(0, 0, 0);
+    color: #e6b326;
 }
  /*erro e sucesso */
 .form-control.success input{ /*caso preencha corretamente a borda do <input> fica verde*/

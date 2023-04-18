@@ -30,10 +30,10 @@ function checkInputs(){
         return formControl.className === "form-control success"
       })
       if (formIsValid) {  
-        //quando o formulario for valido ira para a pagina de login
+        //quando o formulario for valido ira para a pagina da landing page
         setTimeout(() => {
           alert("Login completo!")
-          window.location.href = "landigPage.html";
+          window.location.href = "landingPage.html";
         }, 1000); 
       }
   }
