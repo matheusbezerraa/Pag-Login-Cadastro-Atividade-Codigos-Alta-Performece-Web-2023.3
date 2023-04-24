@@ -44,6 +44,14 @@
         </div>
 
         <div class="form-control">
+            <label for="data">Data de Nascimento</label>  
+            <input type="date" name="data" id="data">
+            <i class="fas fa-exclamation-circle"></i>
+            <i class="fas fa-check-circle"></i>
+            <small>Mensagem de erro</small>
+        </div>
+
+        <div class="form-control">
             <label for="password">Senha</label>  
             <input type="password" name="password" id="password" placeholder="Digite sua senha">
             <i class="fas fa-exclamation-circle"></i>
@@ -60,7 +68,7 @@
             <small>Mensagem de erro</small>
         </div>
 
-            <button id="botaoCadastro" name="submit" class="botao-cadastro" type="submit">Enviar</button>
+            <button onclick="cadastrar()" id="botaoCadastro" name="submit" class="botao-cadastro" type="submit">Enviar</button>
             <a class="link-login" href="loginPage.html">Já tem cadastro? Faça login</a>        
         
       </form>
