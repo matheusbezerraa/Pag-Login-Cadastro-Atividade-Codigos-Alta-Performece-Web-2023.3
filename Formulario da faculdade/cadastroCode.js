@@ -4,6 +4,7 @@ const email = document.getElementById("email")
 const password = document.getElementById("password")
 const passwordConfirmation = document.getElementById("password-confirmation")
 const cpf = document.getElementById("cpf")
+const data = document.getElementById("data")
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault() //para a página não recarregar e tirar os valores dos inputs
@@ -11,7 +12,17 @@ form.addEventListener('submit', (e)=>{
     checkInputs()
 })
 
+function cadastrar(){
+    localStorage.setItem("username", document.querySelector("#username").value)
+    localStorage.setItem("cpf", document.querySelector("#cpf").value)
+    localStorage.setItem("email", document.querySelector("#email").value)
+    localStorage.setItem("password", document.querySelector("#password").value)
+    localStorage.setItem("password-confirmation", document.querySelector("#password-confirmation").value)
+    localStorage.setItem("data", document.querySelector("#data").value)
+}
+
 function checkInputs(){ //verificando os inputs
+    const storedData = localStorage.getItem('userData');
     const usernameValue = username.value
     const emailValue = email.value
     const passwordValue = password.value
@@ -19,7 +30,9 @@ function checkInputs(){ //verificando os inputs
     const specialCharRegex = /[-@!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
     const numberRegex = /\d/;
     const cpfValue = cpf.value
+    const dataValue = data.value
     //validando os dados
+
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
     }else{
@@ -40,6 +53,12 @@ function checkInputs(){ //verificando os inputs
         setErrorFor(email,"Insira um email válido.")
     }else{
         setSuccessFor(email)
+    }
+
+    if(dataValue===""){
+        setErrorFor(data,"A data de nascimento é obrigatória")
+    }else{
+        setSuccessFor(data)
     }
 
     if(passwordValue===""){
@@ -75,8 +94,8 @@ function checkInputs(){ //verificando os inputs
       setTimeout(() => {
         alert("Cadastro completo!")
         window.location.href = "loginPage.html";
-      }, 1000); 
-    }
+    }, 1000); 
+}
 }
 
 function setErrorFor(input, message){
