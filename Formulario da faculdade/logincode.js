@@ -20,7 +20,9 @@ function checkInputs(){
     
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
-    }else{
+    }else if(username.value.length<=2){
+        setErrorFor(username, "O nome de usuário deve conter no minimo 3 caracteres.")
+    }else{  
         setSuccessFor(username)
     }
 
