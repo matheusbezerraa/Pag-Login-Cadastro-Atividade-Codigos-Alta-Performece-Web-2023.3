@@ -1,29 +1,41 @@
-const username = document.getElementById("username")
+const cpf = document.getElementById("cpf")
 const password = document.getElementById("password")
 
 form.addEventListener('submit', (e)=>{
     e.preventDefault()
+
     checkInputs()
 })
 
-function logar(){
-    localStorage.setItem("username", document.querySelector("#username").value)
-    localStorage.setItem("password", document.querySelector("#password").value)
-}
-
 function checkInputs(){
-    const storedData = localStorage.getItem('userData');
-    const usernameValue = username.value
+
     const passwordValue = password.value
     const specialCharRegex = /[-@!$%^&*()_+|~=`{}\[\]:";'<>?,.\/]/;
     const numberRegex = /\d/;
+    const cpfValue = cpf.value
+
+    // Recupera os usuários cadastrados no localStorage
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
+    const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
+
+    if (usuarioExistente) {
+        
+        setSuccessFor(cpf)
+    } else {
+        
+        alert("Faça o cadastro antes.")
+        setErrorFor(cpf,"Faça o cadastro antes")
+        setErrorFor(password,"Faça o cadastro antes")
+        return 
+    }
     
-    if(usernameValue === ''){
-        setErrorFor(username, "O nome de usuário é obrigatório.")
-    }else if(username.value.length<=2){
-        setErrorFor(username, "O nome de usuário deve conter no minimo 3 caracteres.")
-    }else{  
-        setSuccessFor(username)
+    if(cpfValue ===""){
+        setErrorFor(cpf, "O cpf é obrigatório")
+    }else if(cpfValue.length != 11){
+        setErrorFor(cpf, "O cpf precisa conter 11 digítos")
+    }else{
+        setSuccessFor(cpf)
     }
 
     if(passwordValue===""){
@@ -44,7 +56,18 @@ function checkInputs(){
 
     const formIsValid = [...formControls].every((formControl) => {
         return formControl.className === "form-control success"
-      })
+    })
+
+    if (usuarioExistente) {
+        // Mostra uma mensagem de erro
+        setSuccessFor(cpf)
+    } else {
+        setErrorFor(cpf,"Faça o cadastro.")
+        setErrorFor(password,"Faça o cadastro antes")
+        alert("Faça o cadastro antes.")
+      
+    }
+
       if (formIsValid) {
         //quando o formulario for valido ira para a landing page
         setTimeout(() => {

@@ -9,20 +9,29 @@ const data = document.getElementById("data")
 form.addEventListener('submit', (e)=>{
     e.preventDefault() //para a página não recarregar e tirar os valores dos inputs
 
-    checkInputs()
+    const cpfValue = cpf.value
+
+    // Recupera os usuários cadastrados no localStorage
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
+    // Verifica se o CPF já está cadastrado
+    const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
+
+    if (usuarioExistente) {
+        // Mostra uma mensagem de erro
+        alert("Usuário já cadastrado.")
+    } else {
+        // Adiciona o novo usuário à lista e armazena no localStorage
+        const novoUsuario = {cpf: cpfValue}
+        usuarios.push(novoUsuario)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+
+        // Executa outras validações e/ou redireciona para outra página
+        checkInputs()
+    }
 })
 
-function cadastrar(){
-    localStorage.setItem("username", document.querySelector("#username").value)
-    localStorage.setItem("cpf", document.querySelector("#cpf").value)
-    localStorage.setItem("email", document.querySelector("#email").value)
-    localStorage.setItem("password", document.querySelector("#password").value)
-    localStorage.setItem("password-confirmation", document.querySelector("#password-confirmation").value)
-    localStorage.setItem("data", document.querySelector("#data").value)
-}
-
 function checkInputs(){ //verificando os inputs
-    const storedData = localStorage.getItem('userData');
     const usernameValue = username.value
     const emailValue = email.value
     const passwordValue = password.value
@@ -31,7 +40,6 @@ function checkInputs(){ //verificando os inputs
     const numberRegex = /\d/;
     const cpfValue = cpf.value
     const dataValue = data.value
-    //validando os dados
 
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
