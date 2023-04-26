@@ -31,37 +31,6 @@ function checkInputs(){ //verificando os inputs
     const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
     const usuarioExistentePassword = usuarios.find(usuarios => usuarios.password === passwordValue)
 
-    if(username===""){
-        setErrorFor(username)
-        return
-    }else if(username.value.length<=2){
-        setErrorFor(username, "O nome de usuário deve conter no minimo 3 caracteres.")
-        return
-    }else if(usuarioExistente){
-        // Mostra uma mensagem de erro
-        setErrorFor(username)
-        setErrorFor(cpf)
-        setErrorFor(email)
-        setErrorFor(data)
-        setErrorFor(password)
-        setErrorFor(passwordConfirmation)
-        alert("Usuário já cadastrado.")
-        return
-    } else {
-        // Adiciona o novo usuário à lista e armazena no localStorage
-        const novoUsuario = {cpf: cpfValue}
-        usuarios.push(novoUsuario)
-        localStorage.setItem("usuarios", JSON.stringify(usuarios))
-    }
-
-    if(usuarioExistentePassword){
-        setErrorFor(password)
-    }else{
-        const novaSenha = {password: passwordValue}
-        usuarios.push(novaSenha)
-        localStorage.setItem("usuarios", JSON.stringify(usuarios))
-    }
-
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
     }else if(username.value.length<=2){
@@ -120,6 +89,84 @@ function checkInputs(){ //verificando os inputs
         setErrorFor(passwordConfirmation)
     }else{
         setSuccessFor(passwordConfirmation)
+    }
+
+    if(username===""){
+        setErrorFor(username)
+        return
+    }else if(username.value.length<=2){
+        setErrorFor(username, "O nome de usuário deve conter no minimo 3 caracteres.")
+        return
+    }else if(cpfValue ===""){
+        setErrorFor(cpf, "O cpf é obrigatório")
+        return
+    }else if(cpfValue.length != 11){
+        setErrorFor(cpf, "O cpf precisa conter 11 digítos")
+        return
+    }else if(emailValue=== ""){
+        setErrorFor(email,"O email é obrigatório.")
+        return
+    }else if(!checkEmail(emailValue)){
+        setErrorFor(email,"Insira um email válido.")
+        return
+    }else if(dataValue===""){
+        setErrorFor(data,"A data de nascimento é obrigatória")
+        return
+    }else if(passwordValue===""){
+        setErrorFor(password,"A senha é obrigatória.")
+        return
+    }else if(passwordValue.length < 7){
+        setErrorFor(password,"A senha deve ter no minímo 8 caracteres.")
+        return
+    }else if(!specialCharRegex.test(password.value) && !numberRegex.test(password.value)){
+        setErrorFor(password,'A senha deve ter no minímo um caractere especial e um número.')
+        return
+    }else if(!specialCharRegex.test(password.value)){
+        setErrorFor(password,"A senha tem que ter no minímo um caractere especial.")
+        return
+    }else if(!numberRegex.test(password.value)){
+        setErrorFor(password,"A senha tem que ter no minímo um número.")
+        return
+    }else if(passwordConfirmationValue===""){
+        setErrorFor(passwordConfirmation, 'A confirmação da senha é obrigatório.')
+        return
+    }else if(passwordConfirmationValue!=passwordValue){
+        setErrorFor(passwordConfirmation, "As senhas não conferem.")
+        return
+    }else if(passwordConfirmationValue.length < 7){
+        setErrorFor(passwordConfirmation)
+        return
+    }else if(!specialCharRegex.test(passwordConfirmation.value) && !numberRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
+        return
+    }else if(!specialCharRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
+        return
+    }else if(!numberRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
+        return
+    }else if(usuarioExistente){
+        // Mostra uma mensagem de erro
+        setErrorFor(username)
+        setErrorFor(cpf)
+        setErrorFor(email)
+        setErrorFor(data)
+        setErrorFor(password)
+        setErrorFor(passwordConfirmation)
+        alert("Usuário já cadastrado.")
+    } else {
+        // Adiciona o novo usuário à lista e armazena no localStorage
+        const novoUsuario = {cpf: cpfValue}
+        usuarios.push(novoUsuario)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    }
+
+    if(usuarioExistentePassword){
+        setErrorFor(password)
+    }else{
+        const novaSenha = {password: passwordValue}
+        usuarios.push(novaSenha)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
     }
 
     const formControls = form.querySelectorAll(".form-control")
