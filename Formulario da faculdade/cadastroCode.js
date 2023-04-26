@@ -9,26 +9,9 @@ const data = document.getElementById("data")
 form.addEventListener('submit', (e)=>{
     e.preventDefault() //para a página não recarregar e tirar os valores dos inputs
 
-    const cpfValue = cpf.value
-
-    // Recupera os usuários cadastrados no localStorage
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
-
-    // Verifica se o CPF já está cadastrado
-    const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
-
-    if (usuarioExistente) {
-        // Mostra uma mensagem de erro
-        alert("Usuário já cadastrado.")
-    } else {
-        // Adiciona o novo usuário à lista e armazena no localStorage
-        const novoUsuario = {cpf: cpfValue}
-        usuarios.push(novoUsuario)
-        localStorage.setItem("usuarios", JSON.stringify(usuarios))
-
-        // Executa outras validações e/ou redireciona para outra página
-        checkInputs()
-    }
+    // Executa outras validações e/ou redireciona para outra página
+    checkInputs()
+    
 })
 
 function checkInputs(){ //verificando os inputs
@@ -40,6 +23,44 @@ function checkInputs(){ //verificando os inputs
     const numberRegex = /\d/;
     const cpfValue = cpf.value
     const dataValue = data.value
+
+    // Recupera os usuários cadastrados no localStorage
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
+
+    // Verifica se o CPF já está cadastrado
+    const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
+    const usuarioExistentePassword = usuarios.find(usuarios => usuarios.password === passwordValue)
+
+    if(username===""){
+        setErrorFor(username)
+        return
+    }else if(username.value.length<=2){
+        setErrorFor(username, "O nome de usuário deve conter no minimo 3 caracteres.")
+        return
+    }else if(usuarioExistente){
+        // Mostra uma mensagem de erro
+        setErrorFor(username)
+        setErrorFor(cpf)
+        setErrorFor(email)
+        setErrorFor(data)
+        setErrorFor(password)
+        setErrorFor(passwordConfirmation)
+        alert("Usuário já cadastrado.")
+        return
+    } else {
+        // Adiciona o novo usuário à lista e armazena no localStorage
+        const novoUsuario = {cpf: cpfValue}
+        usuarios.push(novoUsuario)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    }
+
+    if(usuarioExistentePassword){
+        setErrorFor(password)
+    }else{
+        const novaSenha = {password: passwordValue}
+        usuarios.push(novaSenha)
+        localStorage.setItem("usuarios", JSON.stringify(usuarios))
+    }
 
     if(usernameValue === ''){
         setErrorFor(username, "O nome de usuário é obrigatório.")
@@ -89,6 +110,14 @@ function checkInputs(){ //verificando os inputs
         setErrorFor(passwordConfirmation, 'A confirmação da senha é obrigatório.')
     }else if(passwordConfirmationValue!=passwordValue){
         setErrorFor(passwordConfirmation, "As senhas não conferem.")
+    }else if(passwordConfirmationValue.length < 7){
+        setErrorFor(passwordConfirmation)
+    }else if(!specialCharRegex.test(passwordConfirmation.value) && !numberRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
+    }else if(!specialCharRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
+    }else if(!numberRegex.test(passwordConfirmation.value)){
+        setErrorFor(passwordConfirmation)
     }else{
         setSuccessFor(passwordConfirmation)
     }
@@ -137,4 +166,3 @@ function checkEmail(email) {
 }
 
 //u
-
