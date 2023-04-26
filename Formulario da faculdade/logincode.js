@@ -18,6 +18,7 @@ function checkInputs(){
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || []
 
     const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
+    const usuarioExistentePassword = usuarios.find(usuarios => usuarios.password === passwordValue)
 
     if (usuarioExistente) {
         setSuccessFor(cpf)
@@ -25,6 +26,14 @@ function checkInputs(){
         alert("Faça o cadastro antes.")
         setErrorFor(cpf)
         setErrorFor(password)
+        return 
+    }
+
+    if(usuarioExistentePassword){
+        setSuccessFor(password)
+    }else{
+        setErrorFor(password,"Senha ou cpf incorretos")
+        setErrorFor(cpf)
         return 
     }
     
@@ -56,16 +65,6 @@ function checkInputs(){
         return formControl.className === "form-control success"
     })
 
-    if (usuarioExistente) {
-        // Mostra uma mensagem de erro
-        setSuccessFor(cpf)
-    } else {
-        setErrorFor(cpf,"Faça o cadastro.")
-        setErrorFor(password,"Faça o cadastro antes")
-        alert("Faça o cadastro antes.")
-      
-    }
-
       if (formIsValid) {
         //quando o formulario for valido ira para a landing page
         setTimeout(() => {
@@ -75,7 +74,6 @@ function checkInputs(){
       }else{     
         alert("erro")
       }
-      
   }
   function setErrorFor(input, message){
     const formControl = input.parentElement
