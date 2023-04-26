@@ -20,13 +20,11 @@ function checkInputs(){
     const usuarioExistente = usuarios.find(usuario => usuario.cpf === cpfValue)
 
     if (usuarioExistente) {
-        
         setSuccessFor(cpf)
     } else {
-        
         alert("Faça o cadastro antes.")
-        setErrorFor(cpf,"Faça o cadastro antes")
-        setErrorFor(password,"Faça o cadastro antes")
+        setErrorFor(cpf)
+        setErrorFor(password)
         return 
     }
     
